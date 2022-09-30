@@ -23,7 +23,7 @@ def ic_pairs(max_size=50):
 def write_interval_class_new_data():
     print("Generating data for IntervalClass.new")
     f = open("data/interval_class/new.txt", "w")
-    for inp in interval_classes(20):
+    for inp in interval_classes():
         ic = abjad.NamedIntervalClass(inp)
         f.write(" ".join([inp, ic.name, str(ic.number),
                 ic.quality, str(ic.direction_number)]))
@@ -34,7 +34,7 @@ def write_interval_class_new_data():
 def write_interval_class_add_data():
     print("Generating data for IntervalClass.add")
     f = open("data/interval_class/add.txt", "w")
-    pairs = ic_pairs(11)
+    pairs = ic_pairs(15)
     pairs_len = len(pairs)
     for (idx, (in1, in2)) in enumerate(pairs):
         ic = abjad.NamedIntervalClass(in1) + abjad.NamedIntervalClass(in2)
@@ -49,7 +49,7 @@ def write_interval_class_add_data():
 def write_interval_class_subtract_data():
     print("Generating data for IntervalClass.subtract")
     f = open("data/interval_class/subtract.txt", "w")
-    pairs = ic_pairs(11)
+    pairs = ic_pairs(15)
     pairs_len = len(pairs)
     for (idx, (in1, in2)) in enumerate(pairs):
         ic = abjad.NamedIntervalClass(in1) - abjad.NamedIntervalClass(in2)

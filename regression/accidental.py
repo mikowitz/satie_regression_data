@@ -2,7 +2,7 @@ import abjad
 import os
 
 extended_quarters = []
-for i in range(1, 3):
+for i in range(1, 5):
     extended_quarters += [
         "s" * i + "qs",
         "f" * i + "qf"

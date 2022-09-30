@@ -3,7 +3,7 @@ import os
 from regression.pitch_class import pitch_classes
 
 octaves = [""]
-for i in range(1, 3):
+for i in range(1, 5):
     octaves += [
         "'" * i,
         "," * i
@@ -65,7 +65,8 @@ def write_pitch_add_data():
 
 
 def write_pitch_subtract_data():
-    f = open("pitch_subtract.txt", "w")
+    print("Generating data for Pitch.add")
+    f = open("data/pitch/subtract.txt", "w")
     pitch_pairs = [(p1, p2) for p1 in pitches() for p2 in pitches()]
     for (inp1, inp2) in pitch_pairs:
         p1 = abjad.NamedPitch(inp1)

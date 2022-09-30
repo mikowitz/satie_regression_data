@@ -16,8 +16,8 @@ def intervals(max_size=50):
 
 def write_interval_new_data():
     print("Generating data for Interval.new")
-    f = open("interval_new.txt", "w")
-    for inp in intervals():
+    f = open("data/interval/new.txt", "w")
+    for inp in intervals(15):
         i = abjad.NamedInterval(inp)
         f.write(" ".join([
             inp,
