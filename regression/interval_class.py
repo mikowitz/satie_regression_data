@@ -25,7 +25,7 @@ def write_interval_class_new_data():
     f = open("data/interval_class/new.txt", "w")
     for inp in interval_classes():
         ic = abjad.NamedIntervalClass(inp)
-        f.write(" ".join([inp, ic.name, str(ic.number),
+        f.write(":".join([inp, ic.name, str(ic.number),
                 ic.quality, str(ic.direction_number)]))
         f.write("\n")
     f.close()
@@ -38,7 +38,7 @@ def write_interval_class_add_data():
     pairs_len = len(pairs)
     for (idx, (in1, in2)) in enumerate(pairs):
         ic = abjad.NamedIntervalClass(in1) + abjad.NamedIntervalClass(in2)
-        f.write(" ".join([in1, in2, ic.name, str(ic.number),
+        f.write(":".join([in1, in2, ic.name, str(ic.number),
                 ic.quality, str(ic.direction_number)]))
         f.write("\n")
         if idx > 0 and (idx % 10000 == 0 or idx == pairs_len):
@@ -53,7 +53,7 @@ def write_interval_class_subtract_data():
     pairs_len = len(pairs)
     for (idx, (in1, in2)) in enumerate(pairs):
         ic = abjad.NamedIntervalClass(in1) - abjad.NamedIntervalClass(in2)
-        f.write(" ".join([in1, in2, ic.name, str(ic.number),
+        f.write(":".join([in1, in2, ic.name, str(ic.number),
                 ic.quality, str(ic.direction_number)]))
         f.write("\n")
         if idx > 0 and (idx % 10000 == 0 or idx == pairs_len):

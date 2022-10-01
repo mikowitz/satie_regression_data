@@ -19,7 +19,7 @@ def write_interval_new_data():
     f = open("data/interval/new.txt", "w")
     for inp in intervals(15):
         i = abjad.NamedInterval(inp)
-        f.write(" ".join([
+        f.write(":".join([
             inp,
             i.interval_class.name,
             i.name,

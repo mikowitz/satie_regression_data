@@ -48,7 +48,7 @@ def write_accidentals_new_data():
         acc = abjad.Accidental(inp)
         name = fix_name(acc.name)
 
-        f.write(",".join([inp, name, str(acc.semitones)]))
+        f.write(":".join([inp, name, str(acc.semitones)]))
         f.write("\n")
     f.close()
 
@@ -61,10 +61,10 @@ def write_accidentals_new_from_number_data():
         acc = abjad.Accidental(inp)
         name = fix_name(acc.name)
 
-        f.write(",".join([str(inp), name, str(acc.semitones)]))
+        f.write(":".join([str(inp), name, str(acc.semitones)]))
         if not inp % 1:
             f.write("\n")
-            f.write(",".join([str(int(inp)), name, str(acc.semitones)]))
+            f.write(":".join([str(int(inp)), name, str(acc.semitones)]))
         f.write("\n")
     f.close()
 
