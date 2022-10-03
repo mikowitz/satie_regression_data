@@ -59,6 +59,24 @@ def write_pc_add_data():
     f.close()
 
 
+def write_pc_subtract_data():
+    print("Generating data for PitchClass.subtract")
+    pc_pairs = [(pc1, pc2) for pc1 in pitch_classes()
+                for pc2 in pitch_classes()]
+    f = open("data/pitch_class/subtract.txt", "w")
+    for (inp1, inp2) in pc_pairs:
+        pc1 = abjad.NamedPitchClass(inp1)
+        pc2 = abjad.NamedPitchClass(inp2)
+        ic = pc1 - pc2
+        f.write(":".join([
+            inp1,
+            inp2,
+            ic.name
+        ]))
+        f.write("\n")
+    f.close()
+
+
 def accidental_name(name):
     if name == "natural":
         return ""
@@ -71,3 +89,4 @@ def generate_data():
     write_pc_new_data()
     write_pc_alteration_data()
     write_pc_add_data()
+    write_pc_subtract_data()
