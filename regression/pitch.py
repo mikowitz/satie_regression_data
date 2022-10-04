@@ -108,6 +108,29 @@ def write_pitch_transpose_data():
     f.close()
 
 
+def write_pitch_invert_data():
+    print("Generating data for Pitch.invert")
+    f = open("data/pitch/invert.txt", "w")
+    pairs = [(pitch, axis)
+             for pitch in pitches()
+             for axis in pitches()]
+    pairs_len = len(pairs)
+    for (idx, (inp1, inp2)) in enumerate(pairs):
+        pitch = abjad.NamedPitch(inp1)
+        axis = abjad.NamedPitch(inp2)
+        pitch2 = pitch.invert(axis)
+        f.write(":".join([
+            inp1,
+            inp2,
+            pitch2.name
+        ]))
+        f.write("\n")
+        if idx > 0 and (idx % 10000 == 0 or idx == pairs_len):
+            print("  {}/{}".format(idx, pairs_len))
+
+    f.close()
+
+
 def generate_data():
     os.makedirs("data/pitch", exist_ok=True)
     write_pitch_new_data()
@@ -115,3 +138,4 @@ def generate_data():
     write_pitch_add_data()
     write_pitch_subtract_data()
     write_pitch_transpose_data()
+    write_pitch_invert_data()
