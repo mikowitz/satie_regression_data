@@ -77,6 +77,23 @@ def write_pc_subtract_data():
     f.close()
 
 
+# def write_pc_complement_data():
+#     print("Generating data for PitchClass.complement")
+#     f = open("data/pitch_class/complement.txt", "w")
+#     for inp in pitch_classes():
+#         pc = abjad.NamedPitchClass(inp)
+#         f.write(":".join([
+#             inp,
+#             pc.name,
+#             str(pc.number),
+#             accidental_name(pc.accidental.name),
+#             pc._get_diatonic_pc_name()
+#         ]))
+#         f.write("\n")
+#     f.close()
+
+
+
 def accidental_name(name):
     if name == "natural":
         return ""
@@ -90,3 +107,4 @@ def generate_data():
     write_pc_alteration_data()
     write_pc_add_data()
     write_pc_subtract_data()
+    # write_pc_complement_data()

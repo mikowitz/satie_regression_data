@@ -34,6 +34,20 @@ def write_interval_new_data():
     f.close()
 
 
+def write_interval_negate_data():
+    print("Generating data for Interval.negate")
+    f = open("data/interval/negate.txt", "w")
+    for inp in intervals(15):
+        i = abjad.NamedInterval(inp)
+        f.write(":".join([
+            inp,
+            (-i).name
+        ]))
+        f.write("\n")
+    f.close()
+
+
 def generate_data():
     os.makedirs("data/interval", exist_ok=True)
     write_interval_new_data()
+    write_interval_negate_data()
