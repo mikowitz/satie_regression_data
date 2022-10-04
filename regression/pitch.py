@@ -3,16 +3,19 @@ import os
 from regression.pitch_class import pitch_classes
 from regression.interval import intervals
 
-octaves = [""]
-for i in range(1, 5):
-    octaves += [
-        "'" * i,
-        "," * i
-    ]
+
+def octaves(max_size=5):
+    octaves = [""]
+    for i in range(1, max_size):
+        octaves += [
+            "'" * i,
+            "," * i
+        ]
+    return octaves
 
 
-def pitches():
-    return [pc + o for pc in pitch_classes() for o in octaves]
+def pitches(max_size=5):
+    return [pc + o for pc in pitch_classes() for o in octaves(max_size)]
 
 
 def write_pitch_new_data():
@@ -113,7 +116,7 @@ def write_pitch_invert_data():
     f = open("data/pitch/invert.txt", "w")
     pairs = [(pitch, axis)
              for pitch in pitches()
-             for axis in pitches()]
+             for axis in pitches(3)]
     pairs_len = len(pairs)
     for (idx, (inp1, inp2)) in enumerate(pairs):
         pitch = abjad.NamedPitch(inp1)
