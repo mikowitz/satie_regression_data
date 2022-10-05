@@ -4,7 +4,7 @@ from regression.pitch_class import pitch_classes
 from regression.interval import intervals
 
 
-def octaves(max_size=5):
+def octaves(max_size=4):
     octaves = [""]
     for i in range(1, max_size):
         octaves += [
@@ -14,7 +14,7 @@ def octaves(max_size=5):
     return octaves
 
 
-def pitches(max_size=5):
+def pitches(max_size=4):
     return [pc + o for pc in pitch_classes() for o in octaves(max_size)]
 
 
