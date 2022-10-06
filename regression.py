@@ -5,6 +5,7 @@ import regression.interval as interval
 import regression.pitch_class as pc
 import regression.accidental as accidental
 import regression.pitch as pitch
+import regression.duration as duration
 
 
 def should_generate(name):
@@ -32,3 +33,7 @@ if __name__ == "__main__":
     if should_generate("pitch"):
         print("Generating data for Pitch")
         pitch.generate_data()
+
+    if should_generate("duration"):
+        print("Generating data for Duration")
+        duration.generate_data()
