@@ -42,7 +42,7 @@ def write_duration_printable_data():
 def write_duration_add_data():
     print("Generating data for Duration.add")
     f = open("data/duration/add.txt", "w")
-    pairs = [(i1, i2) for i1 in durations(15) for i2 in durations(15)]
+    pairs = [(i1, i2) for i1 in durations(10) for i2 in durations(10)]
     pairs_len = len(pairs)
     print(pairs_len)
     for (idx, ((n, d), (n2, d2))) in enumerate(pairs):
@@ -67,7 +67,7 @@ def write_duration_add_data():
 def write_duration_subtract_data():
     print("Generating data for Duration.subtract")
     f = open("data/duration/subtract.txt", "w")
-    pairs = [(i1, i2) for i1 in durations(15) for i2 in durations(15)]
+    pairs = [(i1, i2) for i1 in durations(10) for i2 in durations(10)]
     pairs_len = len(pairs)
     print(pairs_len)
     for (idx, ((n, d), (n2, d2))) in enumerate(pairs):
@@ -92,7 +92,7 @@ def write_duration_subtract_data():
 def write_duration_multiply_data():
     print("Generating data for Duration.multiply")
     f = open("data/duration/multiply.txt", "w")
-    pairs = [(i1, i2) for i1 in durations(15) for i2 in durations(15)]
+    pairs = [(i1, i2) for i1 in durations(10) for i2 in durations(10)]
     pairs_len = len(pairs)
     print(pairs_len)
     for (idx, ((n, d), (n2, d2))) in enumerate(pairs):
@@ -117,7 +117,7 @@ def write_duration_multiply_data():
 def write_duration_divide_data():
     print("Generating data for Duration.divide")
     f = open("data/duration/divide.txt", "w")
-    pairs = [(i1, i2) for i1 in durations(15) for i2 in durations(15)]
+    pairs = [(i1, i2) for i1 in durations(10) for i2 in durations(10)]
     pairs_len = len(pairs)
     print(pairs_len)
     for (idx, ((n, d), (n2, d2))) in enumerate(pairs):

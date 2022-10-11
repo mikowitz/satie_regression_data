@@ -34,14 +34,14 @@ def write_interval_class_new_data():
 def write_interval_class_add_data():
     print("Generating data for IntervalClass.add")
     f = open("data/interval_class/add.txt", "w")
-    pairs = ic_pairs(15)
+    pairs = ic_pairs(9)
     pairs_len = len(pairs)
     for (idx, (in1, in2)) in enumerate(pairs):
         ic = abjad.NamedIntervalClass(in1) + abjad.NamedIntervalClass(in2)
         f.write(":".join([in1, in2, ic.name, str(ic.number),
                 ic.quality, str(ic.direction_number)]))
         f.write("\n")
-        if idx > 0 and (idx % 10000 == 0 or idx == pairs_len):
+        if idx > 0 and (idx % 100000 == 0 or idx == pairs_len):
             print("  {}/{}".format(idx, pairs_len))
     f.close()
 
@@ -49,14 +49,14 @@ def write_interval_class_add_data():
 def write_interval_class_subtract_data():
     print("Generating data for IntervalClass.subtract")
     f = open("data/interval_class/subtract.txt", "w")
-    pairs = ic_pairs(15)
+    pairs = ic_pairs(9)
     pairs_len = len(pairs)
     for (idx, (in1, in2)) in enumerate(pairs):
         ic = abjad.NamedIntervalClass(in1) - abjad.NamedIntervalClass(in2)
         f.write(":".join([in1, in2, ic.name, str(ic.number),
                 ic.quality, str(ic.direction_number)]))
         f.write("\n")
-        if idx > 0 and (idx % 10000 == 0 or idx == pairs_len):
+        if idx > 0 and (idx % 100000 == 0 or idx == pairs_len):
             print("  {}/{}".format(idx, pairs_len))
     f.close()
 

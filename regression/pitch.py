@@ -51,7 +51,7 @@ def write_pitch_to_interval_data():
 def write_pitch_add_data():
     print("Generating data for Pitch.add")
     f = open("data/pitch/add.txt", "w")
-    pitch_pairs = [(p1, p2) for p1 in pitches() for p2 in pitches()]
+    pitch_pairs = [(p1, p2) for p1 in pitches(3) for p2 in pitches(3)]
     pairs_len = len(pitch_pairs)
     for (idx, (inp1, inp2)) in enumerate(pitch_pairs):
         p1 = abjad.NamedPitch(inp1)
@@ -71,7 +71,7 @@ def write_pitch_add_data():
 def write_pitch_subtract_data():
     print("Generating data for Pitch.subtract")
     f = open("data/pitch/subtract.txt", "w")
-    pitch_pairs = [(p1, p2) for p1 in pitches() for p2 in pitches()]
+    pitch_pairs = [(p1, p2) for p1 in pitches(3) for p2 in pitches(3)]
     pairs_len = len(pitch_pairs)
     for (idx, (inp1, inp2)) in enumerate(pitch_pairs):
         p1 = abjad.NamedPitch(inp1)
@@ -92,8 +92,8 @@ def write_pitch_transpose_data():
     print("Generating data for Pitch.transpose")
     f = open("data/pitch/transpose.txt", "w")
     pairs = [(pitch, interval)
-             for pitch in pitches()
-             for interval in intervals(15)]
+             for pitch in pitches(3)
+             for interval in intervals(10)]
     pairs_len = len(pairs)
     for (idx, (inp1, inp2)) in enumerate(pairs):
         pitch = abjad.NamedPitch(inp1)
@@ -116,7 +116,7 @@ def write_pitch_invert_data():
     f = open("data/pitch/invert.txt", "w")
     pairs = [(pitch, axis)
              for pitch in pitches()
-             for axis in pitches(3)]
+             for axis in pitches(2)]
     pairs_len = len(pairs)
     for (idx, (inp1, inp2)) in enumerate(pairs):
         pitch = abjad.NamedPitch(inp1)
